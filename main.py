@@ -31,6 +31,7 @@ class DwarfGiant:
     def create_pairs(self, multiprocessing: bool = True) -> List[Tuple[str, str]]:
         # Split the data into chunks by the number of CPUs and create pairs for each chunk.
         # Finally, create a list of pairs.
+        # Use multiprocessing=False to run in a single process
         if not multiprocessing:
             return self._create_pairs_chunk(self.data_sanitized)
         data_chunks = self._split_data(self.data_sanitized, cpu_count())
